@@ -97,9 +97,15 @@ TextStyle gray600TextStyle({FontWeight fontWeight}) {
 Widget searchFiled({VoidCallback onPressed, TextEditingController controller}) {
   return Center(
       child: SizedBox(
-    height: 50.h,
-    width: 343.w,
+    // height: 50.h,
+    // width: 343.w,
     child: TextFormField(
+      validator: (value) {
+        if (value.isEmpty) {
+          return 'Введите запрос';
+        }
+        return null;
+      },
       controller: controller,
       keyboardType: TextInputType.text,
       textInputAction: TextInputAction.search,

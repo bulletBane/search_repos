@@ -13,6 +13,7 @@ class SearchReposPage extends StatefulWidget {
 }
 
 class _SearchReposPageState extends State<SearchReposPage> {
+  final _formKey = GlobalKey<FormState>();
   TextEditingController _controller = TextEditingController();
   String text;
   @override
@@ -80,11 +81,20 @@ class _SearchReposPageState extends State<SearchReposPage> {
                     );
                   }
                   if (state is SearchReposInitial) {
-                    return searchFiled(
-                        controller: _controller,
-                        onPressed: () =>
-                            BlocProvider.of<SearchReposCubit>(context)
-                                .getRepo(text: _controller.text));
+                    return Form(
+                      key: _formKey,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16),
+                        child: searchFiled(
+                            controller: _controller,
+                            onPressed: () {
+                              if (_formKey.currentState.validate()) {
+                                BlocProvider.of<SearchReposCubit>(context)
+                                    .getRepo(text: _controller.text);
+                              }
+                            }),
+                      ),
+                    );
                   }
                   return Container();
                 },
