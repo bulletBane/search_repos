@@ -32,13 +32,10 @@ class _SearchReposPageState extends State<SearchReposPage> {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => BlocProvider(
-                    create: (context) => SearchReposCubit(),
-                    child: ReposListPage(
-                      text: text,
-                      totalCount: state.repos.totalCount,
-                      repos: state.repos,
-                    ),
+                  builder: (context) => ReposListPage(
+                    text: text,
+                    totalCount: state.repos.totalCount,
+                    repos: state.repos,
                   ),
                 ));
           }

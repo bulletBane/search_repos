@@ -34,7 +34,6 @@ SliverAppBar sAppBar(BuildContext context, {@required String title}) {
     automaticallyImplyLeading: false,
     leading: InkWell(
       onTap: () {
-        BlocProvider.of<SearchReposCubit>(context).resetSearch();
         Navigator.pop(context);
       },
       child: Icon(
