@@ -31,7 +31,7 @@ class Item {
   String name;
   Owner owner;
   DateTime updatedAt;
-  double score;
+  int score;
 
   factory Item.fromJson(Map<String, dynamic> json) => Item(
         id: json["id"],

@@ -56,7 +56,7 @@ class _ReposListPageState extends State<ReposListPage> {
               return RepoWidget(
                 repoName: widget.repos.items[i].name,
                 updated: widget.repos.items[i].updatedAt,
-                scores: widget.repos.items[i].score.toInt(),
+                scores: widget.repos.items[i].score,
                 userAvatarURL: widget.repos.items[i].owner.avatarUrl,
                 userName: widget.repos.items[i].owner.login,
               );

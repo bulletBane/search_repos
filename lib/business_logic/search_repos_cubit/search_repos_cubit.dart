@@ -25,7 +25,7 @@ class SearchReposCubit extends Cubit<SearchReposState> {
       print(responseRepos);
       Repos repos = reposFromJson(responseRepos.body);
 
-      print(repos.items[0].score);
+      // print(repos.items[0].score);
 
       emit(SearchReposSucces(repos: repos));
       emit(SearchReposInitial());
