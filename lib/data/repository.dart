@@ -38,7 +38,7 @@ class Item {
         name: json["name"],
         owner: Owner.fromJson(json["owner"]),
         updatedAt: DateTime.parse(json["updated_at"]),
-        score: json["score"],
+        score: json["watchers_count"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -46,7 +46,7 @@ class Item {
         "name": name,
         "owner": owner.toJson(),
         "updated_at": updatedAt.toIso8601String(),
-        "score": score,
+        "watchers_count": score,
       };
 }
 

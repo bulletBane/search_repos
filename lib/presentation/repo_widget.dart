@@ -8,7 +8,7 @@ class RepoWidget extends StatelessWidget {
   final String userAvatarURL;
   final String repoName;
   final String userName;
-  final double scores;
+  final int scores;
   final DateTime updated;
 
   const RepoWidget(
@@ -36,9 +36,13 @@ class RepoWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.baseline,
             textBaseline: TextBaseline.alphabetic,
             children: [
-              Text(
-                repoName,
-                style: TextStyle(fontSize: 14.ssp),
+              Container(
+                width: 230.w,
+                child: Text(
+                  repoName,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(fontSize: 14.ssp),
+                ),
               ),
               Container(
                 padding: EdgeInsets.symmetric(vertical: 4.h, horizontal: 9.w),
@@ -53,7 +57,7 @@ class RepoWidget extends StatelessWidget {
                       size: 16.ssp,
                     ),
                     Text(
-                      scores.toInt().toString(),
+                      '$scores',
                       style: TextStyle(color: Colors.white, fontSize: 10.ssp),
                     )
                   ],

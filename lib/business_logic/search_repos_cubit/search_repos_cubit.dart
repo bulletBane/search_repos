@@ -19,10 +19,13 @@ class SearchReposCubit extends Cubit<SearchReposState> {
       'page': '$page',
       'per_page': '30'
     });
+    print(uri);
     try {
       http.Response responseRepos = await http.get(uri);
       print(responseRepos);
       Repos repos = reposFromJson(responseRepos.body);
+
+      print(repos.items[0].score);
 
       emit(SearchReposSucces(repos: repos));
       emit(SearchReposInitial());
